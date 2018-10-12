@@ -1,0 +1,688 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"req",
+				"$request〔variable〕"
+			],
+			[
+				"cla",
+				"class"
+			],
+			[
+				"c",
+				"class\tclass …"
+			],
+			[
+				"USUA",
+				"USUARIO_VERIFICADO"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "Searching 4124 files for \"citasenlinea\"\n\nC:\\wamp64\\www\\citasenlinea\\application\\config\\config.php:\n   18  |\n   19  */\n   20: $config['base_url'] = 'http://localhost/citasenlinea/';\n   21  \n   22  /* \n\nC:\\wamp64\\www\\citasenlinea\\application\\controllers\\CentralReportes.php:\n   20      $this->output->set_header(\"Pragma: no-cache\");\n   21  \n   22:     $this->sessionCitasEnLinea = @$this->session->userdata('sess_cevs_'.substr(base_url(),-8,7));\n   23      date_default_timezone_set(\"America/Lima\");\n   24      //if(!@$this->user) redirect ('inicio/login');\n\nC:\\wamp64\\www\\citasenlinea\\application\\controllers\\ControlEventoWeb.php:\n   11  \t\t$this->output->set_header(\"Pragma: no-cache\");\n   12  \t\tdate_default_timezone_set(\"America/Lima\");\t\t\n   13: \t\t$this->sessionCitasEnLinea = @$this->session->userdata('sess_cevs_'.substr(base_url(),-8,7));\n   14  \t}\n   15  \n   ..\n   96  \t\t\t\t\t\t'paciente' => $paciente, \n   97  \t\t\t\t\t\t), \n   98: \t\t\t\t\t'nombre_usuario'  => $this->sessionCitasEnLinea['paciente']\n   99  \t\t\t\t);\n  100  \t\t\t\t$arrData['cita'] = $cita;\n\nC:\\wamp64\\www\\citasenlinea\\application\\controllers\\HistorialCitas.php:\n   11  \t\t$this->output->set_header(\"Pragma: no-cache\");\n   12  \t\tdate_default_timezone_set(\"America/Lima\");\t\t\n   13: \t\t$this->sessionCitasEnLinea = @$this->session->userdata('sess_cevs_'.substr(base_url(),-8,7));\n   14  \t}\n   15  \n   ..\n   17      $allInputs = json_decode(trim($this->input->raw_input_stream),true);\n   18  \n   19:     $allInputs['idusuario'] = $this->sessionCitasEnLinea['idusuario'];\n   20      $lista = $this->model_historial_citas->m_carga_historial_citas($allInputs);\n   21  \n   ..\n   88              'paciente' => $paciente, \n   89              ), \n   90:           'nombre_usuario'  => $this->sessionCitasEnLinea['paciente'],\n   91            'idventa'  => $row['idventa'],\n   92            'iddetalle'  => $row['iddetalle'],\n\nC:\\wamp64\\www\\citasenlinea\\application\\controllers\\Parentesco.php:\n   11  \t\t$this->output->set_header(\"Pragma: no-cache\");\n   12  \t\tdate_default_timezone_set(\"America/Lima\");\t\t\n   13: \t\t$this->sessionCitasEnLinea = @$this->session->userdata('sess_cevs_'.substr(base_url(),-8,7));\n   14  \t}\n   15  \n\nC:\\wamp64\\www\\citasenlinea\\application\\controllers\\Pariente.php:\n   11  \t\t$this->output->set_header(\"Pragma: no-cache\");\n   12  \t\tdate_default_timezone_set(\"America/Lima\");\t\t\n   13: \t\t$this->sessionCitasEnLinea = @$this->session->userdata('sess_cevs_'.substr(base_url(),-8,7));\n   14  \t}\n   15  \n   ..\n   17      $allInputs = json_decode(trim($this->input->raw_input_stream),true);\n   18      $paramPaginate = $allInputs['paginate'];\n   19:     $datos = $this->sessionCitasEnLinea;\n   20      $lista = $this->model_pariente->m_cargar_parientes($datos, $paramPaginate);\n   21      $totalRows = $this->model_pariente->m_count_parientes($datos,$paramPaginate);\n   ..\n   81    public function verificar_pariente_por_documento(){\n   82      $allInputs = json_decode(trim($this->input->raw_input_stream),true);\n   83:     $allInputs['idusuario'] = $this->sessionCitasEnLinea['idusuario'];\n   84      $arrData['message'] = 'Aún no es nuestro paciente. Por favor, ingresa sus datos para finalizar el registro.';\n   85      $arrData['flag'] = 0;\n   ..\n  121      $arrData['message'] = 'No se pudo finalizar el registro. Intente nuevamente.';\n  122      $arrData['flag'] = 0;\n  123:     $allInputs['idusuario'] = $this->sessionCitasEnLinea['idusuario'];\n  124  \n  125      if(empty($allInputs['num_documento'])){\n  ...\n  217          'idtipoevento' => 19,\n  218          'identificador' => $idpariente,\n  219:         'idusuarioweb' => $this->sessionCitasEnLinea['idusuario'],\n  220          'texto_notificacion' => $texto_notificacion,\n  221:         'idresponsable' => $this->sessionCitasEnLinea['idusuario'],\n  222          'fecha_evento' => date('Y-m-d H:i:s'),\n  223          );\n  ...\n  282      $allInputs = json_decode(trim($this->input->raw_input_stream),true);\n  283      $paramPaginate = $allInputs['paginate'];\n  284:     $datos = $this->sessionCitasEnLinea;\n  285      $lista = $this->model_pariente->m_cargar_parientes_cbo($datos, $paramPaginate);     \n  286  \n\nC:\\wamp64\\www\\citasenlinea\\application\\controllers\\ProgramarCita.php:\n   19  \t\t$this->output->set_header(\"Pragma: no-cache\");\n   20  \t\tdate_default_timezone_set(\"America/Lima\");\n   21: \t\t$this->sessionCitasEnLinea = @$this->session->userdata('sess_cevs_'.substr(base_url(),-8,7));\n   22  \t}\n   23  \n   ..\n  547  \t\t\t\t\t//envio de mails\n  548  \t\t\t        $listaDestinatarios = array();\n  549: \t\t\t        array_push($listaDestinatarios, $this->sessionCitasEnLinea['email']);\t\t\t        \n  550  \t\t\t        $setFromAleas = 'Vitacloud';\n  551  \t\t\t        $subject = 'Reprogramación de Cita';\n  ...\n  574  \t\t\t\t\t\t'idtipoevento' => 18,\n  575  \t\t\t\t\t\t'identificador' => $allInputs['oldCita']['idprogcita'],\n  576: \t\t\t\t\t\t'idusuarioweb' => $this->sessionCitasEnLinea['idusuario'],\n  577  \t\t\t\t\t\t'texto_notificacion' => $texto_notificacion,\n  578: \t\t\t\t\t\t'idresponsable' => $this->sessionCitasEnLinea['idusuario'],\n  579  \t\t\t\t\t\t'fecha_evento' => date('Y-m-d H:i:s'),\n  580  \t\t\t\t\t\t);\n  ...\n  608  \t    $cuerpo .= '  <div style=\"max-width: 750px;align-content: center;margin-left: auto; margin-right: auto;padding-left: 10%; padding-right: 10%;\">';\n  609          $cuerpo .= '  <div style=\"font-size:16px;\">  \n  610:                         Estimado(a) usuario: '. $this->sessionCitasEnLinea['paciente'] .',';\n  611          $cuerpo .= '    Has reprogramado una de tus citas.</br> Nueva cita:';\n  612          $cuerpo .=    '</div>';\n  ...\n  672  \t    $allInputs = json_decode(trim($this->input->raw_input_stream),true);\t\t\n  673      \t$arrData['flag'] = 0;\n  674: \t    $arrData['message'] = 'Ha ocurrido un error. Contacta nuestro personal de soporte a citasenlinea@vitacloud.pe';\n  675  \n  676  \t    $arrData['datos'] = $_SESSION['sess_cevs_'.substr(base_url(),-8,7) ];\n  ...\n  704  \t    $allInputs = json_decode(trim($this->input->raw_input_stream),true);\t\t\n  705  \t    $arrData['flag'] = 0;\n  706: \t    $arrData['message'] = 'Ha ocurrido un error. Contacta nuestro personal de soporte a citasenlinea@vitacloud.pe';\n  707  \n  708  \t    $datosCupo = array(\n\nC:\\wamp64\\www\\citasenlinea\\application\\controllers\\Resultadolaboratorio.php:\n   14  \t\t$this->output->set_header(\"Pragma: no-cache\");\n   15  \t\tdate_default_timezone_set(\"America/Lima\");\n   16: \t\t$this->sessionCitasEnLinea = @$this->session->userdata('sess_cevs_'.substr(base_url(),-8,7));\n   17  \t}\n   18  \n   19  \tpublic function carga_resultados_usuario(){\n   20  \t\t$allInputs = json_decode(trim($this->input->raw_input_stream),true);\n   21: \t\t//var_dump($this->sessionCitasEnLinea);exit();\n   22: \t\t$allInputs['idcliente'] = $this->sessionCitasEnLinea['idcliente'];\n   23  \t\t//$allInputs['idcliente'] = 175617;\n   24  \t\t//$paramPaginate = $allInputs['paginate'];\n\nC:\\wamp64\\www\\citasenlinea\\application\\controllers\\Usuario.php:\n   12  \t\t$this->output->set_header(\"Pragma: no-cache\");\n   13  \t\tdate_default_timezone_set(\"America/Lima\");\t\t\n   14: \t\t$this->sessionCitasEnLinea = @$this->session->userdata('sess_cevs_'.substr(base_url(),-8,7));\n   15  \t}\n   16  \n   ..\n  303      $arrPerfilUsuario = array();\n  304      if(empty($allInputs['nombre_usuario'])){\n  305:       $allInputs['nombre_usuario'] = $this->sessionCitasEnLinea['nombre_usuario'];\n  306      }\n  307      $perfil = $this->model_usuario->m_cargar_usuario($allInputs);\n  ...\n  327      $arrPerfilUsuario['tipo_sangre']['descripcion'] = empty($perfil['tipo_sangre']) ? null : $tipo_sangre[$perfil['tipo_sangre']] ;\n  328      $arrPerfilUsuario['nombre_imagen'] = empty($perfil['nombre_imagen']) ? 'noimage.png' : $perfil['nombre_imagen'];\n  329:     $arrPerfilUsuario['compra'] = $this->sessionCitasEnLinea['compra'];\n  330:     $arrPerfilUsuario['compra']['listaCitas']= $this->sessionCitasEnLinea['compra']['listaCitas'];\n  331  \n  332      $paciente = ucwords(strtolower( $perfil['nombres'] . ' ' . \n  ...\n  422      }\n  423  \n  424:     $allInputs ['idusuario'] = $this->sessionCitasEnLinea['idusuario'];\n  425      $usuario = $this->model_usuario->m_verifica_password($allInputs);\n  426      if(empty($usuario)){\n  ...\n  449  \n  450    public function subir_foto_perfil(){\n  451:     $allInputs['idusuario'] = (int)$this->sessionCitasEnLinea['idusuario'];\n  452      $arrData['message'] = 'Error al subir los archivos, PESO MÁXIMO: 1MB';\n  453      $arrData['flag'] = 0;\n  ...\n  503      $arrData['flag'] = 0; \n  504  \n  505:     /*print_r($this->sessionCitasEnLinea);\n  506      print_r($allInputs);*/\n  507      if(empty($allInputs['peso']) || !is_numeric($allInputs['peso'])){\n  ...\n  532      }\n  533  \n  534:     $allInputs['idusuario'] = $this->sessionCitasEnLinea['idusuario'];\n  535  \n  536      if($this->model_usuario->m_actualizar_perfil_clinico($allInputs)){\n\nC:\\wamp64\\www\\citasenlinea\\application\\controllers\\Venta.php:\n   18  \t\t$this->output->set_header(\"Pragma: no-cache\");\n   19  \t\tdate_default_timezone_set(\"America/Lima\");\n   20: \t\t$this->sessionCitasEnLinea = @$this->session->userdata('sess_cevs_'.substr(base_url(),-8,7));\n   21  \t}\n   22  \n   ..\n   73  \t\t$config = getConfig('pago', $allInputs['usuario']['compra']['itemSede']['idsedeempresaadmin'], TRUE);\n   74  \t\t$arrData['flag'] = 0;\n   75: \t\t$arrData['message'] = 'Ha ocurrido un error procesando tu pago. Contacta a nuestro equipo de soporte mediante: citasenlinea@vitacloud.pe';\n   76  \t\t\n   77  \t\t$ocupado = FALSE;\n   ..\n  194  \t\t\t\t\t\t\t'idtipoevento' => 17,\n  195  \t\t\t\t\t\t\t'identificador' => $idprogcita,\n  196: \t\t\t\t\t\t\t'idusuarioweb' => $this->sessionCitasEnLinea['idusuario'],\n  197  \t\t\t\t\t\t\t'texto_notificacion' => $texto_notificacion,\n  198: \t\t\t\t\t\t\t'idresponsable' => $this->sessionCitasEnLinea['idusuario'],\n  199  \t\t\t\t\t\t\t);\n  200  \t\t\t\t\t\tarray_push($listNotificaciones, $data);\t\t\t\t\t\t\n\nC:\\wamp64\\www\\citasenlinea\\application\\helpers\\reportes_helper.php:\n  260        ),\n  261        array(\n  262:         'text'=> 'USUARIO: '.strtoupper($ci2->sessionCitasEnLinea['nombre_usuario']).'    /   FECHA DE IMPRESIÓN: '.date('Y-m-d H:i:s'),\n  263          'style'=> 'headerPage',\n  264          //'margin' => array(0,0,300,0),\n\nC:\\wamp64\\www\\citasenlinea\\application\\views\\resumen-cita.php:\n  154            <div class=\"msj pt-md\">Tu reserva ha expirado. Por favor intentalo nuevamente.\n  155              </br>Si necesitas ayuda, contacta nuestro equipo de soporte a \n  156:             <a href=\"mailto:citasenlinea@vitacloud.pe?Subject=Necesito soporte con citas en linea\" target=\"_top\">\n  157:               <span class=\"text-info\" style=\"font-weight:bold;\">citasenlinea@vitacloud.pe</span>\n  158              </a> \n  159            </div>\n\nC:\\wamp64\\www\\citasenlinea\\application\\views\\verificacion-cuenta.php:\n  187                              </div> \n  188                              <div class=\"col-sm-12 col-xs-12 col-md-12\" style=\"\">                                                                                           \n  189:                                 <a href=\"https://citasenlinea.villasalud.pe/#/login\" class=\"btn btn-page\" style=\"width: 200px; -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.36);box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.36);\">INICIAR SESION</a>\n  190                              </div>                           \n  191                          </div>                        \n\nC:\\wamp64\\www\\citasenlinea\\scripts\\config.js:\n    1: directoryApp = 'citasenlinea';\n    2  if (!window.location.origin) {\n    3    window.location.origin = window.location.protocol+\"//\"+window.location.host;\n\nC:\\wamp64\\www\\citasenlinea\\scripts\\app\\historialCitas.js:\n   12        shortcut.remove(\"F2\"); \n   13        $scope.modulo = 'historialCitas'; \n   14:       $scope.dirComprobantes = 'https://citasenlinea.villasalud.pe/comprobantesWeb/';\n   15        blockUI.start('Cargando historial de citas...');\n   16  \n\nC:\\wamp64\\www\\citasenlinea\\scripts\\core\\controllers\\mainController.js:\n  111          }else{\n  112            $scope.goToUrl('/login');\n  113:           //window.location = \"https://citasenlinea.villasalud.pe/#/login\";\n  114          }\n  115        });\n\n44 matches across 16 files\n\n\nSearching 4124 files for \"consulta\"\n\nC:\\wamp64\\www\\citasenlinea\\application\\controllers\\ProgramarCita.php:\n  412  \t\t$arrData['flag'] = 0;\t\t\n  413  \n  414: \t\t$cita = $this->model_prog_cita->m_consulta_cita($allInputs['idprogcita']);\n  415  \t\t$hoy = strtotime(date('Y-m-d H:i:s'));\n  416  \t\t$fecha_atencion = strtotime($cita['fecha_atencion_cita']); \n  ...\n  445      \t} \n  446  \n  447:     \t$cita = $this->model_prog_cita->m_consulta_cita($allInputs['oldCita']['idprogcita']);\n  448      \tif($cita['estado_cita'] != 2){\n  449      \t\t$arrData['message'] = 'Solo puede reprogramar citas en estado Pendiente.';\n\nC:\\wamp64\\www\\citasenlinea\\application\\controllers\\Venta.php:\n   31  \t\n   32  \t\tforeach ($allInputs['compra']['listaCitas'] as $key => $cita) {\t\t\t\n   33: \t\t\t$cupo = $this->model_prog_medico->m_consulta_cupo($cita['seleccion']['iddetalleprogmedico']);\n   34  \t\t\t$fechaSeleccionada = strtotime($cita['seleccion']['fecha_programada'] . ' ' .$cita['seleccion']['hora_fin_det']);\n   35  \n   ..\n   79  \t\t$arrayDefinitivas= array();\n   80  \t\tforeach ($allInputs['usuario']['compra']['listaCitas'] as $key => $cita) {\t\t\t\n   81: \t\t\t$cupo = $this->model_prog_medico->m_consulta_cupo($cita['seleccion']['iddetalleprogmedico']);\n   82  \t\t\tif($cupo['estado_cupo'] != 5 && $cupo['estado_cupo'] != 2){\n   83  \t\t\t\t$ocupado = TRUE;\n   ..\n  106  \t\t//registro de la venta\n  107  \t\t$orden_venta = $this->genera_codigo_orden($allInputs['usuario']['compra']['itemSede']['id'],$allInputs['usuario']['compra']['itemSede']['idsedeempresaadmin']);\n  108: \t\t$idmediopago = $this->model_venta->m_consulta_medio_pago($allInputs['token']['iin']['card_brand']);\n  109  \t\t$dataVenta = array(\n  110  \t\t\t'idcliente' => $allInputs['usuario']['idcliente'],\n\nC:\\wamp64\\www\\citasenlinea\\application\\helpers\\reportes_helper.php:\n  151      $ci2 =& get_instance();\n  152      $fConfig = $ci2->model_sede->m_cargar_sede_por_id($datos['itemSede']['id']);\n  153:     $fDataCita = $ci2->model_prog_cita->m_consulta_cita_venta($datos['idprogcita']);\n  154      \n  155      // var_dump(base_url('assets/img/dinamic/empresa/'.$fConfig['nombre_logo'])); exit();\n\nC:\\wamp64\\www\\citasenlinea\\application\\models\\Model_especialidad.php:\n   22  \t\t$this->db->where('pm.idtipoproducto', 12); \n   23  \t\t$this->db->where('pm.idespecialidad', (int)$datos['idespecialidad']); \n   24: \t\t//$this->db->where(\"pm.descripcion LIKE 'CONSULTA %\" . $datos['especialidad'] .\"%'\");\n   25  \t\t$this->db->join('producto_precio_sede pps','pm.idproductomaster = pps.idproductomaster \n   26  \t\t\t\t\t\t\t\t\t\t\t\t\tAND pps.estado_pps = 1\n\nC:\\wamp64\\www\\citasenlinea\\application\\models\\Model_prog_cita.php:\n    9  \t}\n   10  \n   11: \tpublic function m_consulta_cita($idprogcita){\n   12  \t\t$this->db->select('*'); \n   13  \t\t$this->db->from(\"pa_prog_cita ppc\");\t\t\n   ..\n   25  \t}\n   26  \n   27: \tpublic function m_consulta_cita_venta($idprogcita){\n   28  \t\t$this->db->select('cv.idventa, cv.orden_venta, cv.fecha_venta'); \n   29  \t\t$this->db->select('cd.iddetalle, cd.paciente_atendido_det, cd.fecha_atencion_det'); \n\nC:\\wamp64\\www\\citasenlinea\\application\\models\\Model_prog_medico.php:\n   27  \t}\n   28  \n   29: \tpublic function m_consulta_cupo($iddetalleprogmedico){\n   30  \t\t$this->db->select('*'); \n   31  \t\t$this->db->from(\"pa_detalle_prog_medico dpm\");\t\t\n\nC:\\wamp64\\www\\citasenlinea\\application\\models\\Model_venta.php:\n   26  \t}\n   27  \n   28: \tpublic function m_consulta_medio_pago($tipotarjeta){\n   29  \t\t$this->db->select('idmediopago');\n   30  \t\t$this->db->from('medio_pago mp');\n\nC:\\wamp64\\www\\citasenlinea\\application\\views\\resultado-laboratorio.01.php:\n   65        <div class=\"form-group col-md-2  pt-md mt-md\">\n   66          <button type=\"button\" ng-click=\"ListarResultados();\" class=\"btn btn-primary\">\n   67:           <span class=\"glyphicon glyphicon-search\"></span> Consultar\n   68          </button>\n   69        </div>\n\nC:\\wamp64\\www\\citasenlinea\\application\\views\\resultado-laboratorio.php:\n   83            <div class=\"form-group col-md-2 pt-md mt-md pl-n\">\n   84              <button type=\"button\" ng-click=\"ctrl.ListarResultados()\" class=\"btn btn-page\" ng-disabled=\"ctrl.examen.selected == undefined\" >\n   85:               <span class=\"glyphicon glyphicon-search\"></span> Consultar\n   86              </button>\n   87            </div>\n\nC:\\wamp64\\www\\citasenlinea\\application\\views\\usuario\\usuario_formView.php:\n   10  \t\t\t\t\t<input type=\"text\" class=\"form-control input-sm\" ng-model=\"fDataUser.num_documento\" placeholder=\"Registre su dni\" tabindex=\"1\" focus-me ng-minlength=\"8\" ng-pattern=\"/^[0-9]*$/\"/> \n   11  \t\t\t\t\t<div class=\"input-group-btn \">\n   12: \t\t\t\t\t\t<button type=\"button\" class=\"btn btn-page btn-sm\" ng-click=\"verificarDoc(); $event.preventDefault();\" >CONSULTAR</button>\n   13  \t\t\t\t\t</div>\n   14  \t\t\t\t</div>\n\n14 matches across 10 files\n\n\nSearching 4124 files for \"@vitacloud.pe\"\n\nC:\\wamp64\\www\\citasenlinea\\application\\controllers\\ProgramarCita.php:\n  672  \t    $allInputs = json_decode(trim($this->input->raw_input_stream),true);\t\t\n  673      \t$arrData['flag'] = 0;\n  674: \t    $arrData['message'] = 'Ha ocurrido un error. Contacta nuestro personal de soporte a citasenlinea@vitacloud.pe';\n  675  \n  676  \t    $arrData['datos'] = $_SESSION['sess_cevs_'.substr(base_url(),-8,7) ];\n  ...\n  704  \t    $allInputs = json_decode(trim($this->input->raw_input_stream),true);\t\t\n  705  \t    $arrData['flag'] = 0;\n  706: \t    $arrData['message'] = 'Ha ocurrido un error. Contacta nuestro personal de soporte a citasenlinea@vitacloud.pe';\n  707  \n  708  \t    $datosCupo = array(\n\nC:\\wamp64\\www\\citasenlinea\\application\\controllers\\Venta.php:\n   73  \t\t$config = getConfig('pago', $allInputs['usuario']['compra']['itemSede']['idsedeempresaadmin'], TRUE);\n   74  \t\t$arrData['flag'] = 0;\n   75: \t\t$arrData['message'] = 'Ha ocurrido un error procesando tu pago. Contacta a nuestro equipo de soporte mediante: citasenlinea@vitacloud.pe';\n   76  \t\t\n   77  \t\t$ocupado = FALSE;\n\nC:\\wamp64\\www\\citasenlinea\\application\\views\\resumen-cita.php:\n  154            <div class=\"msj pt-md\">Tu reserva ha expirado. Por favor intentalo nuevamente.\n  155              </br>Si necesitas ayuda, contacta nuestro equipo de soporte a \n  156:             <a href=\"mailto:citasenlinea@vitacloud.pe?Subject=Necesito soporte con citas en linea\" target=\"_top\">\n  157:               <span class=\"text-info\" style=\"font-weight:bold;\">citasenlinea@vitacloud.pe</span>\n  158              </a> \n  159            </div>\n\n5 matches across 3 files\n",
+			"settings":
+			{
+				"buffer_size": 18590,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 137.0,
+		"last_filter": "Install pa",
+		"selected_items":
+		[
+			[
+				"Install pa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 540.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/wamp64/www/citasenlinea"
+	],
+	"file_history":
+	[
+		"/C/wamp64/www/citasenlinea/scripts/app/usuario.js",
+		"/C/wamp64/www/citasenlinea/scripts/app/login.js",
+		"/C/wamp64/www/citasenlinea/application/views/login.php",
+		"/C/wamp64/www/citasenlinea/scripts/core/controllers/mainController.js",
+		"/C/wamp64/www/citasenlinea/application/views/resumen-cita.php",
+		"/C/wamp64/www/citasenlinea/application/views/error-verificacion-cuenta.php",
+		"/C/wamp64/www/citasenlinea/application/helpers/otros_helper.php",
+		"/C/wamp64/www/citasenlinea/index.html",
+		"/C/wamp64/www/citasenlinea/application/controllers/Venta.php",
+		"/C/wamp64/www/citasenlinea/application/controllers/ProgramarCita.php",
+		"/C/wamp64/www/citasenlinea/application/controllers/Usuario.php",
+		"/C/wamp64/www/citasenlinea/assets/css/custom.css",
+		"/C/wamp64/www/citasenlinea/application/controllers/Acceso.php",
+		"/C/wamp64/www/citasenlinea/application/helpers/reportes_helper.php",
+		"/C/wamp64/www/citasenlinea/application/libraries/fpdfext.php",
+		"/C/wamp64/www/citasenlinea/application/views/historial-citas.php",
+		"/C/wamp64/www/citasenlinea/application/views/verificacion-cuenta.php",
+		"/C/wamp64/www/citasenlinea/scripts/app/programarCita.js",
+		"/C/wamp64/www/citasenlinea/application/config/database.php",
+		"/C/wamp64/www/citasenlinea/application/models/Model_acceso.php",
+		"/C/wamp64/www/sys_clinico/application/config/config.php",
+		"/C/wamp64/www/sys_clinico/application/third_party/mpdf60/ttfontdata/dejavusanscondensed.mtx.php",
+		"/C/wamp64/www/sys_clinico/application/third_party/mpdf60/ttfontdata/dejavusanscondensedB.mtx.php",
+		"/C/wamp64/www/sys_clinico/application/third_party/mpdf60/ttfontdata/dejavuserif.mtx.php",
+		"/C/wamp64/www/sys_clinico/application/third_party/mpdf60/ttfontdata/dejavuserifB.mtx.php",
+		"/C/wamp64/www/sys_clinico/application/third_party/mpdf60/ttfontdata/dejavuserifcondensed.mtx.php",
+		"/C/wamp64/www/sys_clinico/application/third_party/mpdf60/ttfontdata/dejavuserifcondensedB.mtx.php",
+		"/C/wamp64/www/sys_clinico/application/third_party/mpdf60/ttfontdata/freesans.mtx.php",
+		"/C/wamp64/www/sys_clinico/application/third_party/mpdf60/ttfontdata/freesansB.mtx.php",
+		"/C/wamp64/www/sys_clinico/application/third_party/mpdf60/ttfontdata/garuda.mtx.php",
+		"/C/wamp64/www/sys_clinico/CONFIG_HOSPITALARIO/config.js",
+		"/C/wamp64/www/sys_clinico/CONFIG_HOSPITALARIO/config.php",
+		"/C/wamp64/www/sys_clinico/application/third_party/mpdf60/ttfontdata/garudaB.mtx.php",
+		"/C/wamp64/www/sys_clinico/application/config/autoload.php",
+		"/C/wamp64/www/sys_clinico/application/config/doctypes.php",
+		"/C/wamp64/www/sys_clinico/application/config/database.php",
+		"/C/wamp64/www/sys_clinico/scripts/config.js",
+		"/C/xampp/htdocs/apiclinicanet/config/constants.php",
+		"/C/xampp/htdocs/apiclinicanet/vendor/laravel/framework/src/Illuminate/Support/Facades/Config.php",
+		"/C/xampp/htdocs/apiclinicanet/app/config/constants.php",
+		"/C/xampp/htdocs/apiclinicanet/.env",
+		"/C/xampp/htdocs/apiclinicanet/routes/api.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/User.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Providers/AppServiceProvider.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Consultorio.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Estado.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Examen.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Factura.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Historia.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Horario.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Ip.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Llamada.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Llamadadet.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Logacceso.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Mediopago.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Meta.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Modelo.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Modelodet.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Moneda.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Notacredito.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Orden.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Ordendet.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Pago.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Perfil.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Producto.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Referencia.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Reservacion.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Saldo.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Sede.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Seguro.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Seguroplan.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Servicio.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Superperfil.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Tarifa.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Tarifario.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Terapia.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Terapiadet.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Timbrado.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Tratamiento.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Ubigeo.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Unidad.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Venta.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Ventadet.php",
+		"/C/xampp/htdocs/apiclinicanet/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasRelationships.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Anexo.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Ano.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Apertura.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Asistencia.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Autorizacion.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Caja.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Cajachica.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Camilla.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Ciclo.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Ciclodet.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Citamedica.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Citaterapeuta.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Cupon.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Diaferiado.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Diagnostico.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Docidentidad.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Docnegocio.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Docnegocioserie.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Empresa.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Models/Especialidad.php",
+		"/C/xampp/htdocs/apiclinicanet/app/citaterapeuta.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Especialidad.php",
+		"/C/xampp/htdocs/apiclinicanet/app/User.php",
+		"/C/xampp/htdocs/apiclinicanet/inserINTO.sql",
+		"/C/xampp/htdocs/apiclinicanet/app/Meta.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Http/Controllers/MetaController.php",
+		"/C/xampp/htdocs/apiclinicanet/routes/web.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Providers/RouteServiceProvider.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Http/Controllers/AperturaController.php",
+		"/C/xampp/htdocs/apiclinicanet/app/Http/Controllers/Controller.php",
+		"/D/Sublime portable/Data/Packages/PHP Companion/PHP Companion.sublime-settings",
+		"/D/Sublime portable/Data/Packages/User/PHP Companion.sublime-settings",
+		"/C/xampp/htdocs/apiclinicanet/vendor/laravel/framework/src/Illuminate/Notifications/Notifiable.php",
+		"/C/xampp/htdocs/apiclinicanet/vendor/laravel/framework/src/Illuminate/Notifications/HasDatabaseNotifications.php",
+		"/C/xampp/htdocs/apiclinicanet/testeo.php"
+	],
+	"find":
+	{
+		"height": 48.0
+	},
+	"find_in_files":
+	{
+		"height": 125.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"@vitacloud.pe",
+			"consulta",
+			"citasenlinea",
+			"captchaValido",
+			"keyRecaptcha",
+			"sGetConfig",
+			"initLoginRecaptcha",
+			"¿Olvidaste tu contraseña",
+			"villasalud.pe",
+			"@villasalud.pe",
+			"https://www.villasalud.pe",
+			"villasalud.pe",
+			"favicon",
+			"villasalud.pe",
+			"¿Olvidaste tu contras",
+			"206, 29, 25",
+			"00b7be",
+			"Villa Salud",
+			"#ce1d19",
+			"ce1d19",
+			".page-login .capa-info .info-heading",
+			"info-heading",
+			"ESTIONA TUS CITAS Y LAS DE TUS FAMILIARES, DESDE LA COMODIDAD DE TU HOGAR",
+			"host local no está en la lista d",
+			"No se puede conec",
+			"#ce1d19",
+			"VILLA SALUD",
+			"function m_logging_user(",
+			"Su cuenta se encuentra deshabilitada. Debe verificarla mediante el email enviado.",
+			"ebe completar reC",
+			"Acepto los",
+			"titleForm",
+			"Registro en Citas en Linea"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"255, 221, 147",
+			"00567C",
+			"Vitacloud",
+			"#00b7be"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18590,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										165,
+										177
+									],
+									[
+										364,
+										376
+									],
+									[
+										763,
+										775
+									],
+									[
+										970,
+										982
+									],
+									[
+										1251,
+										1263
+									],
+									[
+										1494,
+										1506
+									],
+									[
+										1742,
+										1754
+									],
+									[
+										2069,
+										2081
+									],
+									[
+										2366,
+										2378
+									],
+									[
+										2636,
+										2648
+									],
+									[
+										3024,
+										3036
+									],
+									[
+										3385,
+										3397
+									],
+									[
+										3608,
+										3620
+									],
+									[
+										3743,
+										3755
+									],
+									[
+										4014,
+										4026
+									],
+									[
+										4334,
+										4346
+									],
+									[
+										4580,
+										4592
+									],
+									[
+										4872,
+										4884
+									],
+									[
+										5003,
+										5015
+									],
+									[
+										5392,
+										5404
+									],
+									[
+										5766,
+										5778
+									],
+									[
+										6103,
+										6115
+									],
+									[
+										6380,
+										6392
+									],
+									[
+										6642,
+										6654
+									],
+									[
+										6713,
+										6725
+									],
+									[
+										7035,
+										7047
+									],
+									[
+										7289,
+										7301
+									],
+									[
+										7731,
+										7743
+									],
+									[
+										7823,
+										7835
+									],
+									[
+										8019,
+										8031
+									],
+									[
+										8271,
+										8283
+									],
+									[
+										8496,
+										8508
+									],
+									[
+										8700,
+										8712
+									],
+									[
+										9007,
+										9019
+									],
+									[
+										9373,
+										9385
+									],
+									[
+										9572,
+										9584
+									],
+									[
+										9705,
+										9717
+									],
+									[
+										9973,
+										9985
+									],
+									[
+										10420,
+										10432
+									],
+									[
+										10577,
+										10589
+									],
+									[
+										11008,
+										11020
+									],
+									[
+										11406,
+										11418
+									],
+									[
+										11736,
+										11748
+									],
+									[
+										12035,
+										12047
+									],
+									[
+										12327,
+										12335
+									],
+									[
+										12560,
+										12568
+									],
+									[
+										12937,
+										12945
+									],
+									[
+										13303,
+										13311
+									],
+									[
+										13712,
+										13720
+									],
+									[
+										14106,
+										14114
+									],
+									[
+										14512,
+										14520
+									],
+									[
+										14809,
+										14817
+									],
+									[
+										14969,
+										14977
+									],
+									[
+										15286,
+										15294
+									],
+									[
+										15523,
+										15531
+									],
+									[
+										15939,
+										15947
+									],
+									[
+										16352,
+										16360
+									],
+									[
+										16842,
+										16850
+									],
+									[
+										17265,
+										17278
+									],
+									[
+										17602,
+										17615
+									],
+									[
+										17995,
+										18008
+									],
+									[
+										18337,
+										18350
+									],
+									[
+										18494,
+										18507
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								17253,
+								17278
+							]
+						],
+						"settings":
+						{
+							"default_dir": "C:\\wamp64\\www\\citasenlinea",
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 3,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 11340.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 35.0
+	},
+	"input":
+	{
+		"height": 47.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "citasonline.sublime-project",
+	"replace":
+	{
+		"height": 88.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"custom",
+				"assets\\css\\custom.css"
+			],
+			[
+				"user",
+				"app\\Models\\User.php"
+			],
+			[
+				"",
+				"app\\Models\\User.php"
+			],
+			[
+				"usercontr",
+				"app\\Http\\Controllers\\User\\UserController.php"
+			],
+			[
+				"usercontro",
+				"app\\Http\\Controllers\\User\\UserController.php"
+			],
+			[
+				"produc",
+				"app\\Models\\Producto.php"
+			],
+			[
+				"modu",
+				"app\\Models\\Modulo.php"
+			],
+			[
+				"producto",
+				"app\\Models\\Producto.php"
+			],
+			[
+				"pro",
+				"app\\Models\\Producto.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 364.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
