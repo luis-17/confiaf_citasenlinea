@@ -85,10 +85,10 @@
                         <!-- <a href="" class="btn btn-page" ng-click="btnRegistroEnSistema(); $event.preventDefault();">Registrarse</a>  -->                                  
                     </div>
                     <div class="info-subheading">
-                        Disfruta los beneficios de ser un paciente de Vitacloud... 
+                        Disfruta los beneficios de ser un paciente de Confiaf... 
                     </div>
                     <div class="info-lema">
-                        Vitacloud, Te Cuida!
+                        Confiaf, Te Cuida!
                     </div>                
                 </div>
 
